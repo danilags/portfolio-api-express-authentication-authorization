@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-api-express-authentication-authorization",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danilags/portfolio-api-express-authentication-authorization.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danilags/portfolio-api-express-authentication-authorization/issues"
+  },
+  "homepage": "https://github.com/danilags/portfolio-api-express-authentication-authorization#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "^4.9.2",
+    "nodemon": "^1.11.0",
+    "passport": "^0.3.2",
+    "passport-hash": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "password-hash": "^1.2.2"
+  }
+}
