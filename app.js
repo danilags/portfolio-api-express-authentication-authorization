@@ -15,8 +15,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 app.use('/', index)
 
-passport.use(new Strategy(
-function(username, password, callback) {
+passport.use(new Strategy(function(username, password, callback) {
   User.findOne({ email : username },
     function(err, data) {
       if (err) {

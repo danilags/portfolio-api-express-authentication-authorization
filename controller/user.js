@@ -1,11 +1,13 @@
 const db = require('../models/user');
 const jwt = require('jsonwebtoken');
-const hash = require('password-hash')
+const hash = require('password-hash');
+require('dotenv').config();
 
 let createUser = function(req, res) {
   db.create({
     email     : req.body.email,
-    password  : hash.generate(req.body.password)
+    password  : hash.generate(req.body.password),
+    role      : req.body.role
   }, function(err, data) {
     if (err) {
       res.send(err.messagae)
@@ -25,7 +27,8 @@ let updateUser = function(req, res) {
   db.findByIdAndUpdate(req.params.id, {
     $set : {
       email     : req.body.email,
-      password  : req.body.password
+      password  : req.body.password,
+      role      : req.body.role
     }
   }, function(err, userUpdated) {
     if (err) {
@@ -49,7 +52,7 @@ let deleteUser = function(req, res) {
 
 // give token if success login
 let login = function(req, res) {
-  let token = jwt.sign({email : req.body.email}, "agustosidabutaro")
+  let token = jwt.sign({email : req.body.email, role : req.body.role}, process.env.SECRET_WORD)
   res.send(token)
 }
 
