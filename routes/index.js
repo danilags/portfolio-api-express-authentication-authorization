@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 
 router.post('/users', contUser.createUser)
 
-router.get('/users', auth, contUser.getAllUser)
+router.get('/users', contUser.getAllUser)
 
 router.put('/users/:id', contUser.updateUser)
 

@@ -3,17 +3,34 @@ const jwt = require('jsonwebtoken');
 const hash = require('password-hash');
 require('dotenv').config();
 
+// let createUser = function(req, res) {
+//   db.create({
+//     email     : req.body.email,
+//     password  : hash.generate(req.body.password),
+//     role      : req.body.role
+//   }, function(err, data) {
+//     if (err) {
+//       res.send(err.messagae)
+//     } else {
+//       res.send(data)
+//     }
+//   })
+// }
+
 let createUser = function(req, res) {
   db.create({
     email     : req.body.email,
     password  : hash.generate(req.body.password),
     role      : req.body.role
-  }, function(err, data) {
-    if (err) {
-      res.send(err.messagae)
-    } else {
-      res.send(data)
-    }
+  })
+  .then((user)=>{
+    res.send(user)
+  })
+  .catch((err)=>{
+    res.send({
+      message: "error cuy",
+      error: err
+    })
   })
 }
 

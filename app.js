@@ -7,6 +7,9 @@ const Strategy = passportLocal.Strategy;
 const User = require('./models/user');
 const pwh = require('password-hash');
 const index = require('./routes/index');
+
+mongoose.Promise = global.Promise;
+
 const app = express();
 
 
